@@ -43,8 +43,8 @@ vim /etc/crontab
 @reboot root /diy/wasteScale/displayOffline.sh 
 ```
 
-### 3. wiiBoard connection by blueooth
-Let you board be trusted to the raspberry Zero. If this works out, you should only push the front button on your wiiboard to connect it. I don't have the issue that the button next to the batteries must be pushed. I works with the front button.
+### 3. wiiBoard connection
+Let your board be trusted to the raspberry Zero bluetooth. If this works out, you should only push the front button on your wiiboard to connect it. I don't have the issue that the button next to the batteries must be pushed. I works with the front button.
 I've noticed that I sometimes I need to push 3 time on the button, but it works.
 
 ```
@@ -123,5 +123,6 @@ Tools that give a good idea if your setup is working:
 - [ ] Clear screen before shutdown? Else always 'Ready/offline/...'?
 - [ ] data door te sturen openHAB via mqtt 			item=kind
 - [ ] data door te sturen openHAB via mqtt			mqtt value=weight
+- [ ] check for auto disconnect? Save batteries wiiboard!?
 - [ ] create hardware box
 - [ ] Doublecheck the weight values, seems to have a difference when weight is left, middle or right?
