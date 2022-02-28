@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-kind=$1                                                         #Value is given by command paramaeter (fe currentweight.sh PMD)
+kind=$1   #Value is given by command paramaeter (fe currentweight.sh PMD)
 
 #Log that measuring has start
 logger wasteScale: Measuring
