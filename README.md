@@ -102,7 +102,25 @@ vim /diy/wasterScale/currentWeight.sh
 
 ### 5. Transfer data
 
-to come...
+The data is been transfered over your network by MQTT. These are very small packages, and simple to pick up by other servers. Personally I use openHAB, but you can use whatever server you want. If you don't want to log the data, you can disable/erase the line in currentWeight.sh with the 'mosquitoo_pub' command. 
+
+```
+sudo apt install mosquitto mosquitto-clients
+sudo systemctl start mosquitto
+sudo systemctl daemon-reload
+sudo systemctl enable mosquitto
+```
+
+You can test it with following command. The listener will stop once you reboot the RP, or if you kill the command manually.
+
+```
+mosquitto_sub -v -h broker_ip -p 1883 -t '#' & 
+mosquitto_pub -h localhost -t TEST -m 123321
+mosquitto_pub -h localhost -t TEST -m 15
+mosquitto_pub -h localhost -t TEST2 -m 5
+```
+
+
 
 
 ## 4. Documentation
@@ -117,12 +135,11 @@ Tools that give a good idea if your setup is working:
 
 
 ## 5. ToDo
+- [ ] create hardware box
 - [ ] Clean up code
-- [ ] Make flexible to installation path?
+- [ ] Make more flexible to installation path? Something else then /diy/.
 - [ ] Find a better way for initial calibration, based on UDEV
 - [ ] Clear screen before shutdown? Else always 'Ready/offline/...'?
-- [ ] data door te sturen openHAB via mqtt 			item=kind
-- [ ] data door te sturen openHAB via mqtt			mqtt value=weight
 - [ ] check for auto disconnect? Save batteries wiiboard!?
-- [ ] create hardware box
-- [ ] Doublecheck the weight values, seems to have a difference when weight is left, middle or right?
+- [ ] Log battery levels?
+- [ ] Doublecheck the weight values, seems to have a difference when weight is left, middle or right? I've got the feeling that his can be improved somehow.
