@@ -104,6 +104,13 @@ vim /diy/wasterScale/currentWeight.sh
 
 The data is been transfered over your network by MQTT. These are very small packages, and simple to pick up by other servers. Personally I use openHAB, but you can use whatever server you want. If you don't want to log the data, you can disable/erase the line in currentWeight.sh with the 'mosquitoo_pub' command. 
 
+Example of my dashboard:
+<p align="center">
+<img src="https://user-images.githubusercontent.com/22466675/156196749-e7f0e3bd-a963-48a3-a426-beae8b0af28f.png" width="50%" />
+</p>
+
+To install MQTT, just install mosquitto on your raspberry:
+
 ```
 sudo apt install mosquitto mosquitto-clients
 sudo systemctl start mosquitto
@@ -119,7 +126,6 @@ mosquitto_pub -h localhost -t TEST -m 123321
 mosquitto_pub -h localhost -t TEST -m 15
 mosquitto_pub -h localhost -t TEST2 -m 5
 ```
-
 
 
 
