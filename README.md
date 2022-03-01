@@ -32,9 +32,6 @@ I had an old wiiboard laying around that wasn't used anymore. And I found severa
 I create all my scripts in a folder /diy. I use for this setup the folder /diy/wasteScale. 
 If you want to change this folder, feel free. Just update all corresponding paths.
 
-### 1. Software to installed?
-   - evtest (wil get your data)
-   - bc 
 
 ### 2. Display reset
 The file resetDisplay.sh will reset the display when the raspberryPI is booted. It'll shows the enduser a message that the board is not (yet) connected.
@@ -92,8 +89,13 @@ vim /etc/crontab
 @reboot		root	/usr/bin/python /diy/wasteScale/buttonListen.py
 ```
 
-If needed, update the ID of your board (fe event1 or event2 or...).
-You can find the ID by run the command evtest. Be carefull, this change with amount of USB devices.
+Software to install in order to have de scripts properly?
+```
+sudo apt install evtest bc
+```
+
+If needed, update the ID of your board (fe event1 or event2 or...) in the scripts currentweight.sh & 
+You can find the ID by run the command evtest. Be carefull, this changes when you connect other devices like fe an USB keyboard.
 
 ```
 vim /diy/wasterScale/currentWeight.sh
