@@ -21,6 +21,7 @@ I had an old wiiboard laying around that wasn't used anymore. And I found severa
 
 ## 2. Error codes
 - 1A:	No calibration, try reconnecting wiiboard or restart raspberry.
+- 1B: Start measuring without wiiboard? Check wiiBoard connection, or ID
 - 2A: Negative weight, check scale, recalibrate.
 
 <br>
