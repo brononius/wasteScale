@@ -30,10 +30,10 @@ I had an old wiiboard laying around that wasn't used anymore. And I found severa
 
 ## 3. Technical blabla
 I create all my scripts in a folder /diy. I use for this setup the folder /diy/wasteScale. 
-If you want to change this folder, feel free. Just update all corresponding paths.
+If you want to change this folder, feel free. Just update in the begin of the scripts the variable "scriptPath=" to your preference.
 
 
-### 2. Display reset
+### 1. Display reset
 The file resetDisplay.sh will reset the display when the raspberryPI is booted. It'll shows the enduser a message that the board is not (yet) connected.
 
 ```
@@ -41,7 +41,7 @@ vim /etc/crontab
 @reboot root /diy/wasteScale/displayOffline.sh 
 ```
 
-### 3. wiiBoard connection
+### 2. wiiBoard connection
 Let your board be trusted to the raspberry Zero bluetooth. If this works out, you should only push the front button on your wiiboard to connect it. I don't have the issue that the button next to the batteries must be pushed. I works with the front button.
 I've noticed that I sometimes I need to push 3 time on the button, but it works.
 
@@ -74,9 +74,9 @@ vim /etc/crontab
 @reboot		root	/diy/wasteScale/wiiboardReference.sh 
 ```
 
-### 4. Measure weight
-Change the proper pins where you've connected the buttons
-You can also change the description of the kind of waste.
+### 3. Measure weight
+Change the proper GPIO pins where you've connected your buttons.
+You can also change the description of the kind of waste. These values will be used in  the rest of the scripts. They'll also be publised in the MQTT protocol later on. 
 
 ```
 vim /diy/wasteScale/buttonListen.py
@@ -103,7 +103,7 @@ vim /diy/wasterScale/currentWeight.sh
   
 
 
-### 5. Transfer data
+### 4. Transfer data
 
 The data is been transfered over your network by MQTT. These are very small packages, and simple to pick up by other servers. Personally I use openHAB, but you can use whatever server you want. If you don't want to log the data, you can disable/erase the line in currentWeight.sh with the 'mosquitoo_pub' command. 
 
@@ -142,11 +142,9 @@ Tools that give a good idea if your setup is working:
 
   
 
-
-## 5. ToDo
+## 6. ToDo
 - [ ] create hardware box
 - [ ] Clean up code
-- [ ] Make more flexible to installation path? Something else then /diy/.
 - [ ] Find a better way for initial calibration, based on UDEV
 - [ ] Clear screen before shutdown? Else always 'Ready/offline/...'?
 - [ ] check for auto disconnect? Save batteries wiiboard!?
