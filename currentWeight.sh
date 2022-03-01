@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-scriptPath='/diy/wasteScale'
+scriptPath='/diy/wasteScale'		#Path where the scripts are installed
 eventID='/dev/input/event1'		#ID from wiiBoard
 kind=$1					#Value is given by the command paramaeter (fe currentweight.sh PMD)
 
